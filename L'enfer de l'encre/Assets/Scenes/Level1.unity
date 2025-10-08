@@ -2624,9 +2624,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1071996350}
-  - component: {fileID: 1071996349}
   - component: {fileID: 1071996348}
   - component: {fileID: 1071996351}
+  - component: {fileID: 1071996352}
+  - component: {fileID: 1071996353}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -2664,29 +2665,6 @@ MonoBehaviour:
   m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1071996349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071996347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6493181768344a449ae721c857e5cae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Select
-  playerInput: {fileID: 0}
-  objectToInstantiate: {fileID: 1596091230855734278, guid: a7c68ec436a4b1d45afe2a0fb0a72e59, type: 3}
-  force: 200
-  line: {fileID: 2100000, guid: e3e3495e4ecbb214ab54968e023dbc59, type: 2}
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 1537
-  haveSelectAInk: 0
-  inkSelect: {fileID: 0}
-  rbSelect: {fileID: 0}
-  win: {fileID: 1598361915}
 --- !u!4 &1071996350
 Transform:
   m_ObjectHideFlags: 0
@@ -2718,6 +2696,40 @@ MonoBehaviour:
   isPaused: 0
   playerInput: {fileID: 0}
   win: {fileID: 1598361915}
+--- !u!114 &1071996352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071996347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a701ed84a4c753a4b8deea90807ecfc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InkLinkManager
+  linkMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1537
+--- !u!114 &1071996353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071996347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffd2c8c04aa00c46801bc0776a92616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectController
+  win: {fileID: 1598361915}
+  linkManager: {fileID: 0}
+  force: 200
+  inkLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1090951474
 PrefabInstance:
   m_ObjectHideFlags: 0
