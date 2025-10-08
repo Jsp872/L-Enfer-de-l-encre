@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c681365092721d54fba8f256e5b10ee3
+guid: 658628e01c262be4386944d80a4da281
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6082718150086541417
-    second: "niveau 1 recadr\xE9_0"
+      213: -5607990773745678462
+    second: drapeau lvl frame 3_0
+  - first:
+      213: -8200494925666001658
+    second: drapeau lvl frame 3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "niveau 1 recadr\xE9_0"
+      name: drapeau lvl frame 3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3189
-        height: 3508
+        x: 105
+        y: 80
+        width: 1352
+        height: 2702
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79f3543f118d59ba0800000000000000
-      internalID: -6082718150086541417
+      spriteID: 287883b8a1a6c22b0800000000000000
+      internalID: -5607990773745678462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drapeau lvl frame 3_1
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 2782
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60dd84d205df13e80800000000000000
+      internalID: -8200494925666001658
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4d659f093fc0b7342affb9cd3a878a0a
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "niveau 1 recadr\xE9_0": -6082718150086541417
+      drapeau lvl frame 3_0: -5607990773745678462
+      drapeau lvl frame 3_1: -8200494925666001658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

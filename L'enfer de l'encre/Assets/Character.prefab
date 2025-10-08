@@ -280,4 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b4588fe7ce695429c5818e052ea24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  typeOfCharacterForAnim:
+  - {fileID: 9100000, guid: 6f05029f1ffb57d47a29b70737d0407c, type: 2}
+  - {fileID: 9100000, guid: 9c790622c401ab942a3867caec187083, type: 2}
+  - {fileID: 9100000, guid: 98c0a91f5b0e1a640a3f92817e4a3655, type: 2}
   characterType: 0

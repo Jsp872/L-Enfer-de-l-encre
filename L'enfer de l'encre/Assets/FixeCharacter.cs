@@ -31,20 +31,22 @@ public class FixeCharacter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-            if (collision.gameObject.layer == 7)
-            {
+        if (collision.gameObject.layer == 7)
+        {
             if (isSlepping)
             {
                 isSlepping = false;
                 gameObject.layer = 6;
                 GetComponent<SpriteRenderer>().color = Color.white;
             }
-                canBeFixed = true;
-                Rigidbody2D parent = collision.GetComponentInParent<Rigidbody2D>();
-                if (!OtherInkWithLink.Contains(parent))
-                {
-                    OtherInkWithLink.Add(parent);
-                }
+
+            canBeFixed = true;
+            Rigidbody2D parent = collision.GetComponentInParent<Rigidbody2D>();
+
+            if (!OtherInkWithLink.Contains(parent))
+            {
+                OtherInkWithLink.Add(parent);
+            }
         }
 
         if (collision.gameObject.layer == 9)
