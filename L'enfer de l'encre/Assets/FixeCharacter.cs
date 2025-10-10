@@ -24,7 +24,7 @@ public class FixeCharacter : MonoBehaviour
         }
         if (isSlepping)
         {
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            animator.SetBool("isSleeping", true);
         }
     }
 
@@ -37,7 +37,7 @@ public class FixeCharacter : MonoBehaviour
             {
                 isSlepping = false;
                 gameObject.layer = 6;
-                GetComponent<SpriteRenderer>().color = Color.white;
+                animator.SetBool("isSleeping", false);
             }
 
             canBeFixed = true;
