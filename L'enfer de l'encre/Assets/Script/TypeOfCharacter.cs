@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class TypeOfCharacter : MonoBehaviour
 {
-    [SerializeField] private List<AnimatorController> typeOfCharacterForAnim = new List<AnimatorController>();
+    [SerializeField] private List<RuntimeAnimatorController> typeOfCharacterForAnim = new List<RuntimeAnimatorController>();
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -12,8 +11,8 @@ public class TypeOfCharacter : MonoBehaviour
     public enum CharacterType
     {
         Normal,
-        Heavy,
-        Light
+        Angry,
+        Happy
     }
     public CharacterType characterType;
     void Start()
@@ -28,11 +27,11 @@ public class TypeOfCharacter : MonoBehaviour
                 rb.mass = 1f;
                 animator.runtimeAnimatorController = typeOfCharacterForAnim[0];
                 break;
-            case CharacterType.Heavy:
+            case CharacterType.Angry:
                 rb.mass = 3f;
                 animator.runtimeAnimatorController = typeOfCharacterForAnim[1];
                 break;
-            case CharacterType.Light:
+            case CharacterType.Happy:
                 if (!fixeCharacter.isSlepping) rb.gravityScale = -1f;
                 animator.runtimeAnimatorController = typeOfCharacterForAnim[2];
                 break;

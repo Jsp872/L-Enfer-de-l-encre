@@ -48,7 +48,7 @@ public class FixeCharacter : MonoBehaviour
                 isSlepping = false;
                 gameObject.layer = 6;
                 animator.SetBool("isSleeping", false);
-                if (typeOfCharacter.characterType == TypeOfCharacter.CharacterType.Light)
+                if (typeOfCharacter.characterType == TypeOfCharacter.CharacterType.Happy)
                 {
                     rb.gravityScale = -1f;
                 }

@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 5979361672466442487}
   - component: {fileID: 830784424695101827}
   m_Layer: 6
-  m_Name: Character
+  m_Name: Ink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
