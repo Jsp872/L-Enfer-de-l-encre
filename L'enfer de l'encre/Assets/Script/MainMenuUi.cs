@@ -12,14 +12,22 @@ public class MainMenuUi : MonoBehaviour
     [SerializeField] private GameObject AudioPanel;
 
     [SerializeField] private Toggle fullScreen;
+    [SerializeField] private Toggle mute;
+    [SerializeField] private Slider volumeSlider;
 
     [SerializeField] private List<Button> levelButtons = new List<Button>();
     [SerializeField] private List<GameObject> stars = new List<GameObject>();
     [SerializeField] private int numberOfLevels;
     [SerializeField] private int numberOfStarsPerLevel;
 
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private Sprite starsLock;
+    [SerializeField] private Sprite starsUnlock;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         for (int i = 0; i < levelButtons.Count; i++)
         {
             if (PlayerPrefs.GetInt("Level" + (i + 1), 0) == 1)
@@ -40,15 +48,24 @@ public class MainMenuUi : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("Level" + (i + 1) + "Star" + (j + 1), 0) == 1)
                 {
-                    stars[i * numberOfStarsPerLevel + j].SetActive(true);
+                    Image image = stars[i * numberOfStarsPerLevel + j].GetComponent<Image>();
+                    image.sprite = starsUnlock;
                 }
                 else
                 {
-                    stars[i * numberOfStarsPerLevel + j].SetActive(false);
+                    Image image = stars[i * numberOfStarsPerLevel + j].GetComponent<Image>();
+                    image.sprite = starsLock;
                 }
             }
 
         }
+        OptionPanel.SetActive(false);
+        fullScreen.isOn = PlayerPrefs.GetInt("FullScreen", Screen.fullScreen ? 1 : 0) == 1;
+        mute.isOn = PlayerPrefs.GetInt("Mute", audioSource.mute ? 1 : 0) == 1;
+        volumeSlider.value = PlayerPrefs.GetFloat("Volume", audioSource.volume);
+        Screen.fullScreen = fullScreen.isOn;
+        audioSource.mute = mute.isOn;
+        audioSource.volume = volumeSlider.value;
     }
 
     public void PlayGame()
@@ -80,7 +97,8 @@ public class MainMenuUi : MonoBehaviour
         }
         for (int i = 0; i < stars.Count; i++)
         {
-            stars[i].SetActive(false);
+            Image image = stars[i].GetComponent<Image>();
+            image.sprite = starsLock;
         }
     }
 
@@ -111,6 +129,18 @@ public class MainMenuUi : MonoBehaviour
     public void SetFullScreen()
     {
         Screen.fullScreen = fullScreen.isOn;
+        PlayerPrefs.SetInt("FullScreen", fullScreen.isOn ? 1 : 0);
+    }
+
+    public void MuteVolume()
+    {
+        audioSource.mute = mute.isOn;
+        PlayerPrefs.SetInt("Mute", mute.isOn ? 1 : 0);
+    }
+    public void SetVolume()
+    {
+        audioSource.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("Volume", volumeSlider.value);
     }
     public void QuitGame()
     {

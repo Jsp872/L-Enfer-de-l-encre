@@ -35,8 +35,7 @@ public class InkLinkManager : MonoBehaviour
 
     public bool TryCreateLinksForInk(GameObject ink)
     {
-        FixeCharacter fixeChar = ink.GetComponent<FixeCharacter>();
-        if (fixeChar == null) return false;
+        if (!ink.TryGetComponent<FixeCharacter>(out var fixeChar)) return false;
 
         int created = 0;
 

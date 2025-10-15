@@ -41,7 +41,6 @@ public class SelectController : MonoBehaviour
             FixeCharacter targetFixe = hit.collider.GetComponent<FixeCharacter>();
             if (targetFixe != null && !targetFixe.isSlepping)
             {
-                Debug.Log($"Encre sélectionnée : {targetFixe.name}");
                 currentInk = targetFixe.gameObject;
                 currentRb = currentInk.GetComponent<Rigidbody2D>();
                 hasInkSelected = true;
@@ -49,10 +48,6 @@ public class SelectController : MonoBehaviour
                 targetFixe.animator.SetBool("isGrab", true);
                 linkManager.SetCurrentInk(currentInk);
                 return;
-            }
-            else
-            {
-                Debug.Log("Cette encre ne peut pas être déplacée.");
             }
         }
     }

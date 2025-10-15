@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Win : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Win : MonoBehaviour
     public bool win;
     [SerializeField] GameObject character;
     private int numberOfInk;
+
+    [SerializeField] private Sprite StarsUnlock;
+    [SerializeField] private Sprite StarsLock;
 
     private void Start()
     {
@@ -36,10 +40,16 @@ public class Win : MonoBehaviour
             remainingInk.text = $"{numberOfInk} encres n'ont pas été utilisé.";
             for (int i = 0; i < starConditions.Count; i++)
             {
+                Image image = stars[i].GetComponent<Image>();
                 if (numberOfInk >= starConditions[i])
                 {
-                    stars[i].SetActive(true);
+                    image.sprite = StarsUnlock;
                     PlayerPrefs.SetInt($"{SceneManager.GetActiveScene().name}Star{i + 1}", 1);
+                }
+                else
+                {
+                    image.sprite = StarsLock;
+                    PlayerPrefs.SetInt($"{SceneManager.GetActiveScene().name}Star{i + 1}", 0);
                 }
             }
         }

@@ -25,8 +25,7 @@ public class LinkPreview
     {
         if (ink == null) return;
 
-        FixeCharacter fixeChar = ink.GetComponent<FixeCharacter>();
-        if (fixeChar == null) return;
+        if (!ink.TryGetComponent<FixeCharacter>(out var fixeChar)) return;
 
         List<Rigidbody2D> validOthers = new();
         foreach (var o in fixeChar.OtherInkWithLink)
