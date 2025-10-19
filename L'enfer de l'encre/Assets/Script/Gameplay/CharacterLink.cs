@@ -17,7 +17,7 @@ public class CharacterLink : MonoBehaviour
         {
             lineRenderer.SetPosition(0, pointA.position);
             lineRenderer.SetPosition(1, pointB.position);
-            offset += Time.deltaTime * 0.5f; // vitesse
+            offset += Time.deltaTime * 0.5f;
             lineRenderer.material.mainTextureOffset = new Vector2(offset, 0);
             return;
         }
