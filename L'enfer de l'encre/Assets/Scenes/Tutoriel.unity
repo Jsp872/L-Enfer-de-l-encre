@@ -357,9 +357,25 @@ PrefabInstance:
       value: SignRetry
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Appuie sur R pour recommencer
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 451.83
@@ -1239,10 +1255,30 @@ PrefabInstance:
       value: SignStarterInk
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 444587061}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Si tu laches une encre autour d'une encre aux yeux gris, alors elle
         se fixera. a chaque debut de niveau, il y a une encre aux yeux gris
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 451.83
@@ -1608,6 +1644,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a390fab281bb93545a5f3b9df2f6771b, type: 3}
+--- !u!114 &444587061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+  m_PrefabInstance: {fileID: 261347329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d9f44102784ce4992ab4f5a7e2c424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextToShowWhenClickSign
 --- !u!1 &451603768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4326,8 +4373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectController
   win: {fileID: 695101588}
-  linkManager: {fileID: 0}
-  force: 200
+  throwForce: 10
   inkLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -4344,16 +4390,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
   pauseMenu: {fileID: 1802578323}
-  isPaused: 0
-  playerInput: {fileID: 0}
-  win: {fileID: 695101588}
-  OptionPanel: {fileID: 1321977817}
-  VideoPanel: {fileID: 1265838116}
-  AudioPanel: {fileID: 154289955}
+  optionPanel: {fileID: 1321977817}
+  videoPanel: {fileID: 1265838116}
+  audioPanel: {fileID: 154289955}
   fullScreen: {fileID: 780656523}
   mute: {fileID: 2067138771}
   volumeSlider: {fileID: 1818880171}
   audioSource: {fileID: 877920783}
+  playerInput: {fileID: 0}
+  win: {fileID: 695101588}
 --- !u!1001 &1090951474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5284,7 +5329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1321977818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5654,7 +5699,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1071996354}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 1
         m_Arguments:
@@ -5829,10 +5874,30 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1429089827}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Tu ne peux pas selectionner une encre endormie, si une encre aux yeux
         gris se rapproche d'une encre endormie, alors elle se reveillera
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 451.83
@@ -5851,6 +5916,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2880989691710053658, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
   m_PrefabInstance: {fileID: 1429089825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1429089827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+  m_PrefabInstance: {fileID: 1429089825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d9f44102784ce4992ab4f5a7e2c424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextToShowWhenClickSign
 --- !u!4 &1432915119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1733265994805123554, guid: a390fab281bb93545a5f3b9df2f6771b, type: 3}
@@ -7070,9 +7146,25 @@ PrefabInstance:
       value: SignRelease
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: relache le clique gauche quand tu as une encre pour la lacher
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 451.83
@@ -7416,9 +7508,25 @@ PrefabInstance:
       value: SignClick
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Reste appuye sur clique gauche sur une encre pour la selectionner
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 295.09

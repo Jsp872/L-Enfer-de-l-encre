@@ -1929,7 +1929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &550403567
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3815,16 +3815,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
   pauseMenu: {fileID: 1802578323}
-  isPaused: 0
-  playerInput: {fileID: 0}
-  win: {fileID: 1598361915}
-  OptionPanel: {fileID: 550403566}
-  VideoPanel: {fileID: 430146040}
-  AudioPanel: {fileID: 1167193414}
+  optionPanel: {fileID: 550403566}
+  videoPanel: {fileID: 430146040}
+  audioPanel: {fileID: 1167193414}
   fullScreen: {fileID: 529986607}
   mute: {fileID: 1110553320}
   volumeSlider: {fileID: 487885375}
   audioSource: {fileID: 1652123518}
+  playerInput: {fileID: 0}
+  win: {fileID: 1598361915}
 --- !u!114 &1071996352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3854,8 +3853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectController
   win: {fileID: 1598361915}
-  linkManager: {fileID: 0}
-  force: 200
+  throwForce: 10
   inkLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -5058,9 +5056,25 @@ PrefabInstance:
       value: Sign
       objectReference: {fileID: 0}
     - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowText
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901288621491343541, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Finis ce niveau pour gagner !
       objectReference: {fileID: 0}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithText
+      value: 
+      objectReference: {fileID: -4242225874777937944, guid: bbebd62f2840b6c439e4e19aa33eb475, type: 3}
+    - target: {fileID: 6993413816374860492, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
+      propertyPath: signWithoutText
+      value: 
+      objectReference: {fileID: 7500322035290221754, guid: ede5b3769472a2844940e51e637fc5b8, type: 3}
     - target: {fileID: 7714853939653332508, guid: a6587c3a59a5c354e8de6868f1fe89a0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 349.56

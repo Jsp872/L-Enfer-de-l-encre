@@ -29,7 +29,7 @@ public class Win : MonoBehaviour
         if (collision.gameObject.layer == 8 && win == false)
         {
             victory.SetActive(true);
-            audioSource.resource = victorySong;
+            audioSource.clip = victorySong;
             audioSource.Play();
             Time.timeScale = 0f;
             win = true;

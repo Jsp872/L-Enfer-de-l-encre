@@ -25,34 +25,33 @@ public class InkLinkManager : MonoBehaviour
     public void UpdatePreviews()
     {
         if (currentInk == null) return;
-        if (!currentInk.TryGetComponent<FixeCharacter>(out var fixeChar)) return;
-        if (fixeChar.isDead) 
+        if (!currentInk.TryGetComponent(out FixeCharacter fixeChar)) return;
+
+        if (fixeChar.isDead)
         {
             ClearPreviews();
             Destroy(currentInk);
-            return; 
+            return;
         }
+
         linkPreview.UpdatePreviewLines();
     }
 
-    public void ClearPreviews()
-    {
-        linkPreview.Clear();
-    }
+    public void ClearPreviews() => linkPreview.Clear();
 
     public bool TryCreateLinksForInk(GameObject ink)
     {
-        if (!ink.TryGetComponent<FixeCharacter>(out var fixeChar)) return false;
+        if (!ink.TryGetComponent(out FixeCharacter fixeChar)) return false;
 
         int created = 0;
 
-        foreach (Rigidbody2D other in fixeChar.OtherInkWithLink)
+        foreach (var other in fixeChar.OtherInkWithLink)
         {
             if (other == null) continue;
             if (ObstacleUtils.IsLineBlocked(ink.transform.position, other.transform.position, obstacleMask))
                 continue;
 
-            SpringJoint2D joint = ink.AddComponent<SpringJoint2D>();
+            var joint = ink.AddComponent<SpringJoint2D>();
             joint.connectedBody = other;
             joint.autoConfigureDistance = false;
             joint.frequency = 25f;
@@ -67,15 +66,14 @@ public class InkLinkManager : MonoBehaviour
 
     private void CreateLink(Transform a, Transform b)
     {
-        GameObject lineObj = new("GooLink");
-        LineRenderer lr = lineObj.AddComponent<LineRenderer>();
-
+        var lineObj = new GameObject("GooLink");
+        var lr = lineObj.AddComponent<LineRenderer>();
         lr.positionCount = 2;
         lr.startWidth = lr.endWidth = 0.2f;
         lr.material = linkMaterial;
         lr.startColor = lr.endColor = Color.black;
 
-        CharacterLink link = lineObj.AddComponent<CharacterLink>();
+        var link = lineObj.AddComponent<CharacterLink>();
         link.pointA = a;
         link.pointB = b;
 
