@@ -17,6 +17,9 @@ public class Win : MonoBehaviour
     [SerializeField] private Sprite StarsUnlock;
     [SerializeField] private Sprite StarsLock;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip victorySong;
+
     private void Start()
     {
         numberOfInk = 0;
@@ -26,6 +29,8 @@ public class Win : MonoBehaviour
         if (collision.gameObject.layer == 8 && win == false)
         {
             victory.SetActive(true);
+            audioSource.resource = victorySong;
+            audioSource.Play();
             Time.timeScale = 0f;
             win = true;
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);
@@ -37,7 +42,7 @@ public class Win : MonoBehaviour
                     numberOfInk++;
                 }
             }
-            remainingInk.text = $"{numberOfInk} encres n'ont pas été utilisé.";
+            remainingInk.text = $"{numberOfInk} encres n'ont pas ete utilise.";
             for (int i = 0; i < starConditions.Count; i++)
             {
                 Image image = stars[i].GetComponent<Image>();

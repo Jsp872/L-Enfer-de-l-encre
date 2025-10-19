@@ -10,6 +10,8 @@ public class MainMenuUi : MonoBehaviour
     [SerializeField] private GameObject OptionPanel;
     [SerializeField] private GameObject VideoPanel;
     [SerializeField] private GameObject AudioPanel;
+    [SerializeField] private GameObject intro;
+    [SerializeField] private GameObject CreditsPanel;
 
     [SerializeField] private Toggle fullScreen;
     [SerializeField] private Toggle mute;
@@ -71,6 +73,13 @@ public class MainMenuUi : MonoBehaviour
     public void PlayGame()
     {
         MainMenuGameObject.SetActive(false);
+        intro.SetActive(true);
+        
+    }
+
+    public void SkipIntro()
+    {
+        intro.SetActive(false);
         LevelSelectGameObject.SetActive(true);
     }
 
@@ -145,5 +154,15 @@ public class MainMenuUi : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Credits()
+    {
+        CreditsPanel.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        CreditsPanel.SetActive(false);
     }
 }

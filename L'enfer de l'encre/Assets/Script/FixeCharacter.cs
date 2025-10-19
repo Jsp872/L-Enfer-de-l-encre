@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class FixeCharacter : MonoBehaviour
     public bool isFixed = false;
     public bool canBeFixed = false;
     public bool isSlepping = false;
+    public bool isDead = false;
     public Animator animator;
 
     public CircleCollider2D circleCollider2D;
@@ -65,9 +67,16 @@ public class FixeCharacter : MonoBehaviour
 
         if (collision.gameObject.layer == 9)
         {
-            Destroy(gameObject);
+            isDead = true;
+            StartCoroutine(WaitForDead());
         }
 
+    }
+
+    private IEnumerator WaitForDead()
+    {
+        yield return new WaitForSeconds(0.05f);
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

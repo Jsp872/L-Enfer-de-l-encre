@@ -25,6 +25,13 @@ public class InkLinkManager : MonoBehaviour
     public void UpdatePreviews()
     {
         if (currentInk == null) return;
+        if (!currentInk.TryGetComponent<FixeCharacter>(out var fixeChar)) return;
+        if (fixeChar.isDead) 
+        {
+            ClearPreviews();
+            Destroy(currentInk);
+            return; 
+        }
         linkPreview.UpdatePreviewLines();
     }
 
